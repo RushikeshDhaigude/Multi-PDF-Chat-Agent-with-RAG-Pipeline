@@ -29,25 +29,56 @@ This project implements an end-to-end RAG pipeline to:
 
 4. Streamlit UI : Intuitive interface for uploading documents, asking questions, and viewing answers with supporting snippets.
 
+### Project Struture 
+
+```
+Multi-PDF-RAG-Chat/
+│
+├─ app.py                  # Streamlit front-end
+├─ requirements.txt        # Python dependencies
+├─ README.md               # Project documentation
+├─ rag_pipeline_langgraph/  # LangGraph workflow files
+│   ├─ state.py            # TypedDict for PDF_CHAT_STATE
+│   ├─ nodes.py            # LangGraph nodes (ingest, vector DB, QA)
+│   └─ graph_runner.py     # LangGraph workflow runner
+├─ rag_pipeline_langchain/  # LangChain workflow files
+│   ├─ ingest.py           # PDF ingestion
+│   ├─ embeddings_store.py # Embedding creation & persistence
+│   ├─ qa_agent.py         # QA chain with Gemini
+│   └─ utils.py            # Chunking & cleaning utilities
+└─ examples/               # Sample PDFs and outputs
+```
+
 
 ### Installation
 
 1. Clone the repository:
-
-- git clone https://github.com/RushikeshDhaigude/Multi-PDF-Chat-Agent-with-RAG-Pipeline.git
-- cd Multi-PDF-Chat-Agent-with-RAG-Pipeline
+```
+git clone https://github.com/RushikeshDhaigude/Multi-PDF-Chat-Agent-with-RAG-Pipeline.git
+cd Multi-PDF-Chat-Agent-with-RAG-Pipeline
+```
 
 2. Create a virtual environment:
+```
+python -m venv my_env
+source my_env/bin/activate   # Linux / macOS
+my_env\Scripts\activate      # Windows
+```
 
-- python -m venv my_env
-- source my_env/bin/activate   # Linux / macOS
-- my_env\Scripts\activate      # Windows
+3. Install dependencies:
+```
+pip install -r requirements.txt
+```
 
-3. Install dependencies: pip install -r requirements.txt
+5. Set Google Gemini API key in your environment:
+```
+GEMINI_API_KEY="your_api_key_here"
+```
 
-4. Set Google Gemini API key in your environment:
-
-5. Run the Streamlit app : streamlit run app.py
+7. Run the Streamlit app :
+```
+streamlit run app.py
+```
 
 
 
