@@ -1,0 +1,14 @@
+streamlit>=1.25
+langchain>=0.0
+langchain-google-genai>=0.0
+google-genai>=0.0
+chromadb
+pypdf
+tqdm
+python-dotenv
+faiss-cpu
+uvicorn
+fastapi
+gunicorn
+langgraph
+google-genai
